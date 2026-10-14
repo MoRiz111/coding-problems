@@ -1,7 +1,7 @@
 package leetcode_problems.binary_tree_leetcode_problems;
 
 public class TreeNode {
-	int val;
+	public int val;
 	public TreeNode left;
 	public TreeNode right;
 
