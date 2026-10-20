@@ -47,8 +47,4 @@ public class UtilClass {
 		
 		return root;
 	}
-	
-	public Integer[] convertBinaryTreeToArray(TreeNode root) {
-		
-	}
 }
