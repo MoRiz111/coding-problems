@@ -8,21 +8,28 @@ import leetcode_problems.binary_tree_leetcode_problems.TreeNode;
 
 
 public class LC230_KthSmallestElementInABST {
+	/**
+	 * In-order traversal of BST gives sorted list
+	 * TC - O(H + K) - In iterative inorder traversal, we use a stack to reach the leftmost node before processing nodes in sorted order.
+                       1. Reach the first node: We may need to traverse a path of height \(H\) to reach the leftmost node.
+                          This takes - O(H).
+                       2. Visit the next k nodes: We process nodes in inorder until we reach the k-th smallest element.
+                          This takes O(k) additional time.
+	 * SC - O(H) -> O(logN) (as height = logN for balanced binary tree),
+	 *              but for worst case skewed tree - SC - O(N)
+	 */
 	public int kthSmallestIterative(TreeNode root, int k) {
 		int count = 0;
 		Stack<TreeNode> stack = new Stack<>();
 		
-		stack.push(root);
-		root = root.left;
-		
-		while (!stack.isEmpty()) {
+		while (!stack.isEmpty() || root != null) {
 			while (root != null) {
 				stack.push(root);
 				root = root.left;
 			}
 			
-			root = stack.pop();
 			count++;
+			root = stack.pop();
 			
 			if (count == k) {
 				return root.val;
@@ -32,7 +39,8 @@ public class LC230_KthSmallestElementInABST {
 		}
 		
 		return 0;
-    }
+	}
+
 	
 	/**
 	 * In-order traversal of BST gives sorted list
@@ -71,22 +79,8 @@ public class LC230_KthSmallestElementInABST {
 		
 		helper(root.right, k, res);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
 	/**
 	 * In-order traversal of BST gives sorted list
 	 * TC - O(N)
