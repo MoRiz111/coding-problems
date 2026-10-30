@@ -4,8 +4,65 @@ import java.util.Stack;
 
 import leetcode_problems.binary_tree_leetcode_problems.TreeNode;
 
+/**
+ * PreOrder Traversal (or any type of traversal)
+ * 
+ * N - no. of nodes in tree
+ * M - no. of nodes in sub-tree
+ * 
+ * TC - O(N*M)
+ * SC - O(logN * logM)
+ */
 public class LC572_SubtreeOfAnotherTree {
-    public boolean isSubtree(TreeNode root, TreeNode subRoot) {
+	public boolean isSubtree(TreeNode root, TreeNode subRoot) { // TC - O(N)
+		if (root == null) {
+			return false;
+		}
+		
+		if (isTreeIdentical(root, subRoot)) {
+			return true;
+		}
+		
+		return (isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot));
+	}
+	
+	public boolean isTreeIdentical(TreeNode root, TreeNode subRoot) { // TC - O(N)
+		if (root == null && subRoot == null) {
+			return true;
+		}
+		
+		if (root == null || subRoot == null) {
+			return false;
+		}
+		
+		if (root.val != subRoot.val) {
+			return false;
+		}
+		
+		return isTreeIdentical(root.left, subRoot.left) && isTreeIdentical(root.right, subRoot.right);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+    public boolean isSubtreeWrong(TreeNode root, TreeNode subRoot) {
         Stack<TreeNode> stack = new Stack<TreeNode>();
         
         stack.push(root);
@@ -14,7 +71,7 @@ public class LC572_SubtreeOfAnotherTree {
         	root = stack.pop();
         	
         	if (root.val == subRoot.val) {
-        		if (isTreeIdentical(root, subRoot)) {
+        		if (isTreeIdenticalWrong(root, subRoot)) {
         			return true;
         		}
         	}
@@ -34,7 +91,7 @@ public class LC572_SubtreeOfAnotherTree {
         return false;
     }
     
-    public boolean isTreeIdentical(TreeNode root, TreeNode subRoot) {
+    public boolean isTreeIdenticalWrong(TreeNode root, TreeNode subRoot) {
     	Stack<TreeNode> stack1 = new Stack<TreeNode>();
     	Stack<TreeNode> stack2 = new Stack<TreeNode>();
     	
