@@ -7,9 +7,9 @@ import java.util.List;
 import leetcode_problems.linked_list_leetcode_problems.ListNode;
 
 /**
- * Keep merging 2 lists at a time
- * TC - O(logK. N^2)
- * SC - O(N)
+ * Divide and Conquer. Keep merging 2 lists at a time (Pair-wise merging)
+ * TC - O(logK.N)
+ * SC - O(K)
  */
 public class LC23_MergeKSortedLists {
 	 public ListNode mergeKLists(ListNode[] lists) {
@@ -17,12 +17,12 @@ public class LC23_MergeKSortedLists {
 			 return null;
 		 }
 		 
-		 List<ListNode> unMergedLists = new ArrayList<>(Arrays.asList(lists)); //SC - O(N)
+		 List<ListNode> unMergedLists = new ArrayList<>(Arrays.asList(lists)); //SC - O(K)
 		 
-		 while (unMergedLists.size() > 1) { //TC - O(logK. N^2)
-			 List<ListNode> mergedLists = new ArrayList<ListNode>(); //SC - O(N)
+		 while (unMergedLists.size() > 1) { //TC - O(logK. N) (as the merging happens logK times)
+			 List<ListNode> mergedLists = new ArrayList<ListNode>(); //SC - O(K) (as they are listNode, only the current node takes the space)
 			 
-			 for (int i = 0; i<unMergedLists.size(); i+=2) { //TC - O(N^2)
+			 for (int i = 0; i<unMergedLists.size(); i+=2) {
 				 if (i+1 < unMergedLists.size()) {
 					 mergedLists.add(mergeTwoLists(unMergedLists.get(i), unMergedLists.get(i+1)));
 				 } else {
@@ -45,18 +45,14 @@ public class LC23_MergeKSortedLists {
 		 
 		 while (cur1 != null && cur2 != null) {
 			 if (cur1.val <= cur2.val) {
-				 while (cur1 != null && cur2 != null && cur1.val <= cur2.val) {
 					 res.next = cur1;
 					 cur1 = cur1.next;
-					 res = res.next;
-				 }
 			 } else {
-				 while (cur1 != null && cur2 != null && cur2.val <= cur1.val) {
 					 res.next = cur2;
 					 cur2 = cur2.next;
-					 res = res.next;
-				 }
 			 }
+			 
+			 res = res.next;
 		 }
 		 
 		 if (cur1 == null) {
