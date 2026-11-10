@@ -1,15 +1,17 @@
-import leetcode_problems.binary_search_leetcode_problems.binary_search_lc_nc_150.LC875_KokoEatingBananas;
-import leetcode_problems.binary_search_leetcode_problems.binary_search_lc_nc_150.LC981_TimeBasedKeyValueStore;
+import java.util.Arrays;
+
+import leetcode_problems.array_leetcode_problems.array_lc_nc_150.LC271_EncodeAndDecodeStrings;
 import leetcode_problems.hashing_leetcode_problems.hashing_lc_nc_150.LC49_GroupAnagrams;
-import leetcode_problems.heap_leetcode_problems.heap_lc_nc_150.LC295_FindMedianFromDataStream;
-import leetcode_problems.queue_leetcode_problems.queue_lc_nc_150.LC239_SlidingWindowMaximum;
-import leetcode_problems.sliding_window_leetcode_problems.sliding_window_lc_nc_150.LC567_PermuatationInString;
-import leetcode_problems.sorting_leetcode_problems.sorting_lc_nc_150.LC215_KthLargestElementInArray;
 
 public class Main {
 	public static void main(String[] args) {
-		LC49_GroupAnagrams lc49 = new LC49_GroupAnagrams();
-		System.out.println(lc49.groupAnagrams(new String[] {"eat","tea","tan","ate","nat","bat"}));
+		LC271_EncodeAndDecodeStrings lc271 = new LC271_EncodeAndDecodeStrings();
+		String encoded = lc271.encode(Arrays.asList("eat","tea","tan","ate","nat","bat"));
+		System.out.println("Encoded : " + encoded + "\nDecoded : " + lc271.decode(encoded));
+		
+		
+//		LC49_GroupAnagrams lc49 = new LC49_GroupAnagrams();
+//		System.out.println(lc49.groupAnagrams(new String[] {"eat","tea","tan","ate","nat","bat"}));
 		
 //		LC981_TimeBasedKeyValueStore lc981 = new LC981_TimeBasedKeyValueStore();
 //		lc981.set("foo", "bar", 1);

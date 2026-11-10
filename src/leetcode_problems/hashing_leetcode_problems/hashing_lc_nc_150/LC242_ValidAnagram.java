@@ -1,10 +1,11 @@
 package leetcode_problems.hashing_leetcode_problems.hashing_lc_nc_150;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Hashing
+ * Hashing using Frequency array
  * TC - O(N)
  * SC - O(26) -> O(1)
  */
@@ -24,6 +25,8 @@ public class LC242_ValidAnagram {
             sFrq[s.charAt(i)-'a']++;
             tFrq[t.charAt(i)-'a']++;
         }
+        
+        //return Arrays.equals(sFrq, tFrq);  //easier way to do it.
 
         for (char c: s.toCharArray()) {
             if (sFrq[c-'a'] != tFrq[c-'a']) {
@@ -35,6 +38,9 @@ public class LC242_ValidAnagram {
 
     }
 	
+	/**
+	 * Slightly less efficient than using array.
+	 */
 	public boolean isAnagramUsingHashMap(String s, String t) {
         int sLen = s.length();
         int tLen = t.length();

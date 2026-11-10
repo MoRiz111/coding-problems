@@ -5,41 +5,36 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Hashing (frequency array)
+ * TC - O(N.M.26) -> O(N.M) [N - no. of words in strs, M - max. length on an element in strs]
+ * SC - O(N.M)
+ */
 public class LC49_GroupAnagrams {
     public List<List<String>> groupAnagrams(String[] strs) {
-        Map<String, List<Integer>> map = new HashMap<>();
-        List<List<String>> res = new ArrayList<>();
+        Map<String, List<String>> map = new HashMap<>();
         
         for (int i = 0; i<strs.length; i++) {
         	String cur = strs[i];
         	StringBuilder sortedCur = new StringBuilder();
         	int[] arr = new int[26];
         	
+        	//TC - O(M)
         	for (char c: cur.toCharArray()) {
         		arr[c-'a']++;
         	}
         	
+        	//TC - O(26)
         	for (int j = 0; j<arr.length; j++) {
         		while (arr[j] > 0) {
-        			sortedCur.append((char)('a'+arr[j]));
+        			sortedCur.append((char)('a'+j));
         			arr[j]--;
         		}
         	}
         	
-        	map.computeIfAbsent(sortedCur.toString(), k -> new ArrayList<Integer>()).add(i);
+        	map.computeIfAbsent(sortedCur.toString(), k -> new ArrayList<String>()).add(cur);
         }
         
-        for (String key : map.keySet()) {
-        	List<Integer> value = map.get(key);
-        	List<String> curGroup = new ArrayList<>();
-        	
-        	for (int k=0; k < value.size(); k++) {
-        		curGroup.add(strs[value.get(k)]);
-        	}
-        	
-        	res.add(curGroup);
-        }
-        
-        return res;
+        return new ArrayList<>(map.values());
     }
 }
