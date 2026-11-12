@@ -1,7 +1,32 @@
 package leetcode_problems.sorting_leetcode_problems.sorting_lc_nc_150;
 
+import java.util.PriorityQueue;
+
 public class LC215_KthLargestElementInArray {
-    public int findKthLargest(int[] nums, int k) {
+	/**
+	 * Min. Heap
+	 * TC - O(N.logN)
+	 * SC - O(K)
+	 */
+	public int findKthLargestHeap(int[] nums, int k) {
+		PriorityQueue<Integer> heap = new PriorityQueue<>();
+		
+		for (int num: nums) {
+			heap.offer(num);
+			
+			if (heap.size() == k+1) {
+				heap.poll();
+			}
+		}
+		
+		return heap.peek();
+	}
+	
+	/**
+	 * Using Quicksort
+	 * 
+	 */
+    public int findKthLargestQuickSort(int[] nums, int k) {
     	int l = 0;
     	int r = nums.length-1;
     	int req = nums.length-k;
