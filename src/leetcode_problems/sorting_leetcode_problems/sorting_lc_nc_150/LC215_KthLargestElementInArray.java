@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 public class LC215_KthLargestElementInArray {
 	/**
 	 * Min. Heap
-	 * TC - O(N.logN)
+	 * TC - O(N.logK)
 	 * SC - O(K)
 	 */
 	public int findKthLargestHeap(int[] nums, int k) {
@@ -14,7 +14,7 @@ public class LC215_KthLargestElementInArray {
 		for (int num: nums) {
 			heap.offer(num);
 			
-			if (heap.size() == k+1) {
+			if (heap.size() > k) {
 				heap.poll();
 			}
 		}
@@ -23,10 +23,11 @@ public class LC215_KthLargestElementInArray {
 	}
 	
 	/**
-	 * Using Quicksort
-	 * 
+	 * Using Quickselect
+	 * TC - O(N) (best & average case), O(N^2) - (worst case - if it is already sorted)
+	 * SC - O(1)
 	 */
-    public int findKthLargestQuickSort(int[] nums, int k) {
+    public int findKthLargestQuickSelect(int[] nums, int k) {
     	int l = 0;
     	int r = nums.length-1;
     	int req = nums.length-k;

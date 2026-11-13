@@ -13,6 +13,83 @@ import java.util.Set;
  */
 public class LC36_ValidSudoku {
 	public boolean isValidSudoku(char[][] board) {
+		Map<Integer, Set<Integer>> rowMap = new HashMap<Integer, Set<Integer>>();
+		Map<Integer, Set<Integer>> colMap = new HashMap<Integer, Set<Integer>>();
+		Map<Integer, Set<Integer>> boxMap = new HashMap<Integer, Set<Integer>>();
+		
+		for (int i=0; i<board.length; i++) {
+			rowMap.put(i, new HashSet<Integer>());
+			colMap.put(i, new HashSet<Integer>());
+			boxMap.put(i, new HashSet<Integer>());
+		}
+		
+		
+		for (int i=0; i<board.length; i++) {
+			for (int j=0; j<board[0].length; j++) {
+				int boxIndex = (i/3)*3 + (j/3);
+				
+				if (board[i][j] == '.') {
+					continue;
+				}
+				
+				int cur = board[i][j]-'0';
+				
+				Set<Integer> rows = rowMap.get(i);
+				Set<Integer> cols = colMap.get(j);
+				Set<Integer> boxs = boxMap.get(boxIndex);
+				
+				
+				if (!rows.add(cur) || !cols.add(cur) || !boxs.add(cur)) {
+					return false;
+				}
+				
+				rowMap.put(i, rows);
+				colMap.put(j, cols);
+				boxMap.put(boxIndex, boxs);
+			}
+		}
+		
+		return true;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public boolean isValidSudokuz(char[][] board) {
 		int size = board.length;
         
         Map<Integer, Set<Integer>> rowMap = new HashMap<Integer, Set<Integer>>();

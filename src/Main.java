@@ -2,13 +2,28 @@ import java.util.Arrays;
 
 import leetcode_problems.array_leetcode_problems.array_lc_nc_150.LC271_EncodeAndDecodeStrings;
 import leetcode_problems.greedy_leetcode_problems.greed_lc_nc_150.LC1899_MergeTripletsToFormTargetTriplets;
+import leetcode_problems.hashing_leetcode_problems.hashing_lc_nc_150.LC36_ValidSudoku;
 import leetcode_problems.hashing_leetcode_problems.hashing_lc_nc_150.LC49_GroupAnagrams;
 
 public class Main {
 	public static void main(String[] args) {
-		LC1899_MergeTripletsToFormTargetTriplets lc1899 = new LC1899_MergeTripletsToFormTargetTriplets();
+		LC36_ValidSudoku lc36 = new LC36_ValidSudoku();
+		char[][] board = new char[][] {
+		    {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+		    {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+		    {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+		    {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+		    {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+		    {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+		    {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+		    {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+		    {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+		};
+		System.out.println(lc36.isValidSudoku(board));
 		
-		System.out.println(lc1899.mergeTriplets(new int[][]{{3, 1, 7}, {1, 5, 10}}, new int[]{3, 5, 7}));
+//		LC1899_MergeTripletsToFormTargetTriplets lc1899 = new LC1899_MergeTripletsToFormTargetTriplets();
+//		
+//		System.out.println(lc1899.mergeTriplets(new int[][]{{3, 1, 7}, {1, 5, 10}}, new int[]{3, 5, 7}));
 		
 //		LC271_EncodeAndDecodeStrings lc271 = new LC271_EncodeAndDecodeStrings();
 //		String encoded = lc271.encode(Arrays.asList("eat","tea","tan","ate","nat","bat"));
