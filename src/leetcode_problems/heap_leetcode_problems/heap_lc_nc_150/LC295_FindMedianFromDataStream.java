@@ -1,60 +1,46 @@
 package leetcode_problems.heap_leetcode_problems.heap_lc_nc_150;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
+/**
+ * Min.Heap and Max.Heap
+ * Make sure that size difference b/w minHeap and maxHeap is atmost 1.
+ * 
+ * TC - O(NlogN)
+ * SC - O(N) (2 heaps)
+ */
 public class LC295_FindMedianFromDataStream {
-	PriorityQueue<Integer> heap = new PriorityQueue<>();
+	PriorityQueue<Integer> maxHeap;
+	PriorityQueue<Integer> minHeap;
 
     public LC295_FindMedianFromDataStream() {
-        
+    	maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+    	minHeap = new PriorityQueue<>();
     }
     
-    public void addNum(int num) {
-        heap.offer(num);
+    
+    public void addNum(int num) { //TC - O(logN)
+        if (!minHeap.isEmpty() && num > minHeap.peek()) {
+        	minHeap.add(num);
+        } else {
+        	maxHeap.add(num);
+        }
+        
+        if (maxHeap.size() > minHeap.size() + 1) {
+        	minHeap.add(maxHeap.poll());
+        }
+        
+        if (minHeap.size() > maxHeap.size()) {
+        	maxHeap.add(minHeap.poll());
+        }
     }
     
     public double findMedian() {
-        int size = heap.size();
-        double median = 0;
-        int m = size/2;
-        List<Integer> removed = new ArrayList<Integer>();
-        
-        if (size%2 == 0) { //even
-        	int k = 0;
-        	
-        	
-        	while (k <= m) {
-        		int elt = heap.poll();
-        		removed.add(elt);
-        		
-        		if (k == m-1 || k == m) {
-        			median += elt;
-        		}
-        		k++;
-        	}
-        	
-        	median = median/2;
+        if (maxHeap.size() > minHeap.size()) {
+        	return maxHeap.peek();
         } else {
-        	int k = 0;
-        	
-        	while (k <= m) {
-        		int elt = heap.poll();
-        		removed.add(elt);
-        		
-        		if (k == m) {
-        			median += elt;
-        		}
-        		k++;
-        	}
+        	return (double)(maxHeap.peek() + minHeap.peek())/2;
         }
-        
-        
-        for (int elt : removed) {
-        	heap.offer(elt);
-        }
-        
-        return median;
     }
 }
