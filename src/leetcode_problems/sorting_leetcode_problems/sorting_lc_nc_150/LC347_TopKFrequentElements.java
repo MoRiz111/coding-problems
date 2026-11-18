@@ -1,4 +1,4 @@
-package leetcode_problems.heap_leetcode_problems.heap_lc_nc_150;
+package leetcode_problems.sorting_leetcode_problems.sorting_lc_nc_150;
 
 import java.util.ArrayDeque;
 import java.util.HashMap;

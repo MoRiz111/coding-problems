@@ -1,8 +1,12 @@
+import leetcode_problems.binary_tree_leetcode_problems.binary_tree_lc_nc_150.LC297_SerializeAndDeserializeBinaryTree;
 import leetcode_problems.hashing_leetcode_problems.hashing_lc_nc_150.LC36_ValidSudoku;
 import leetcode_problems.heap_leetcode_problems.heap_lc_nc_150.LC295_FindMedianFromDataStream;
 
 public class Main {
 	public static void main(String[] args) {
+		LC297_SerializeAndDeserializeBinaryTree lc297 = new LC297_SerializeAndDeserializeBinaryTree();
+		System.out.println(lc297.serialize(null));
+		
 //		LC36_ValidSudoku lc36 = new LC36_ValidSudoku();
 //		char[][] board = new char[][] {
 //		    {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
@@ -38,12 +42,12 @@ public class Main {
 //		LC567_PermuatationInString lc567 = new LC567_PermuatationInString();
 //		System.out.println(lc567.checkInclusion("hello", "ooolleoooleh"));
 		
-		LC295_FindMedianFromDataStream lc295 = new LC295_FindMedianFromDataStream();
-		lc295.addNum(1);
-		lc295.addNum(2);
-		System.out.println(lc295.findMedian());
-		lc295.addNum(3);
-		System.out.println(lc295.findMedian());
+//		LC295_FindMedianFromDataStream lc295 = new LC295_FindMedianFromDataStream();
+//		lc295.addNum(1);
+//		lc295.addNum(2);
+//		System.out.println(lc295.findMedian());
+//		lc295.addNum(3);
+//		System.out.println(lc295.findMedian());
 		
 //		LC239_SlidingWindowMaximum lc239 = new LC239_SlidingWindowMaximum();
 		//int nums[] = {1,3,1,2,0,5};
