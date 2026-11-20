@@ -1,11 +1,17 @@
-import leetcode_problems.binary_tree_leetcode_problems.binary_tree_lc_nc_150.LC297_SerializeAndDeserializeBinaryTree;
-import leetcode_problems.hashing_leetcode_problems.hashing_lc_nc_150.LC36_ValidSudoku;
-import leetcode_problems.heap_leetcode_problems.heap_lc_nc_150.LC295_FindMedianFromDataStream;
+import java.util.Arrays;
+import java.util.List;
+
+import leetcode_problems.intervals_leetcode_problems.intervals_lc_nc_150.Interval;
+import leetcode_problems.intervals_leetcode_problems.intervals_lc_nc_150.LC253_MeetingRooms2;
 
 public class Main {
 	public static void main(String[] args) {
-		LC297_SerializeAndDeserializeBinaryTree lc297 = new LC297_SerializeAndDeserializeBinaryTree();
-		System.out.println(lc297.serialize(null));
+		LC253_MeetingRooms2 lc253 = new LC253_MeetingRooms2();
+		List<Interval> intervals = Arrays.asList(new Interval(0,30), new Interval(5,10), new Interval(15,20));
+		System.out.println(lc253.minMeetingRoomsEfficient(intervals));
+		
+//		LC297_SerializeAndDeserializeBinaryTree lc297 = new LC297_SerializeAndDeserializeBinaryTree();
+//		System.out.println(lc297.serialize(null));
 		
 //		LC36_ValidSudoku lc36 = new LC36_ValidSudoku();
 //		char[][] board = new char[][] {
