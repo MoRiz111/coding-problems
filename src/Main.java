@@ -1,14 +1,19 @@
 import java.util.Arrays;
 import java.util.List;
 
+import leetcode_problems.greedy_leetcode_problems.greed_lc_nc_150.LC846_HandOfStraights;
 import leetcode_problems.intervals_leetcode_problems.intervals_lc_nc_150.Interval;
 import leetcode_problems.intervals_leetcode_problems.intervals_lc_nc_150.LC253_MeetingRooms2;
 
 public class Main {
 	public static void main(String[] args) {
-		LC253_MeetingRooms2 lc253 = new LC253_MeetingRooms2();
-		List<Interval> intervals = Arrays.asList(new Interval(0,30), new Interval(5,10), new Interval(15,20));
-		System.out.println(lc253.minMeetingRoomsEfficient(intervals));
+		LC846_HandOfStraights lc846 = new LC846_HandOfStraights();
+		int[] hand = {1,2,3,6,2,3,4,7,8};
+		System.out.println(lc846.isNStraightHand(hand, 3));
+		
+//		LC253_MeetingRooms2 lc253 = new LC253_MeetingRooms2();
+//		List<Interval> intervals = Arrays.asList(new Interval(0,30), new Interval(5,10), new Interval(15,20));
+//		System.out.println(lc253.minMeetingRoomsEfficient(intervals));
 		
 //		LC297_SerializeAndDeserializeBinaryTree lc297 = new LC297_SerializeAndDeserializeBinaryTree();
 //		System.out.println(lc297.serialize(null));
