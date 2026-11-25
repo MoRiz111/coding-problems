@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Delimeter + length of every element 
+ * Delimiter + length of every element 
  * 
  * for both methods : 
  * TC - O(L) (length of the encoded string)
