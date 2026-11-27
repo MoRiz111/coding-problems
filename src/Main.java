@@ -1,16 +1,19 @@
-import java.util.Arrays;
-import java.util.List;
-
-import leetcode_problems.binary_search_leetcode_problems.binary_search_lc_nc_150.LC153_FindMinimumInRotatedSortedArray;
-import leetcode_problems.greedy_leetcode_problems.greed_lc_nc_150.LC846_HandOfStraights;
-import leetcode_problems.intervals_leetcode_problems.intervals_lc_nc_150.Interval;
-import leetcode_problems.intervals_leetcode_problems.intervals_lc_nc_150.LC253_MeetingRooms2;
+import leetcode_problems.binary_tree_leetcode_problems.TreeNode;
+import util.UtilClass;
 
 public class Main {
 	public static void main(String[] args) {
-		LC153_FindMinimumInRotatedSortedArray lc153 = new LC153_FindMinimumInRotatedSortedArray();
-		int[] nums = {2,3,4,5,1};
-		System.out.println(lc153.findMin(nums));
+		String[] treeArr = {"1","2","N","N","3","4","N","N","5","N","N"};
+		TreeNode root = UtilClass.convertArrayToBinaryTree(treeArr);
+		System.out.println(root);
+		System.out.println(UtilClass.convertBinaryTreeToArray(root));
+		
+//		LC424_LongestRepeatingCharacterReplacement lc424 = new LC424_LongestRepeatingCharacterReplacement();
+//		System.out.println(lc424.characterReplacement("AAAB", 0));
+		
+//		LC153_FindMinimumInRotatedSortedArray lc153 = new LC153_FindMinimumInRotatedSortedArray();
+//		int[] nums = {2,3,4,5,1};
+//		System.out.println(lc153.findMin(nums));
 		
 //		LC846_HandOfStraights lc846 = new LC846_HandOfStraights();
 //		int[] hand = {1,2,3,6,2,3,4,7,8};
